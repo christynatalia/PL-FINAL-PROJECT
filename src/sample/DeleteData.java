@@ -80,7 +80,7 @@ public class DeleteData {
 
                     else
                     {
-                        System.out.println("Data doesn't exist so you have to create the new one");
+                        AddSalesData();
                     }
                 }
                 catch(SQLException e)
@@ -99,5 +99,27 @@ public class DeleteData {
             System.out.println(e.getMessage());
         }
 
+    }
+
+
+    public void AddSalesData()
+    {
+        int prodnameid = Integer.parseInt(TFDProdID.getText());
+        String prodname = TFDProdName.getText();
+        int prodqty = Integer.parseInt(TFDQty.getText());
+
+        String mysql1 = "INSERT INTO Sales_table(SProdID, SProdName, SprodQty)" + "VALUES(?,?,?)";
+        PreparedStatement prepstat = connectt.getPrepstat(mysql1);
+        try
+        {
+            prepstat.setInt(1,prodnameid);
+            prepstat.setString(1,prodname);
+            prepstat.setInt(3,prodqty);
+            prepstat.executeUpdate();
+        }
+        catch(SQLException e)
+        {
+            System.out.println(e.getMessage());
+        }
     }
 }

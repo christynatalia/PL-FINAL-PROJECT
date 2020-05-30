@@ -32,7 +32,6 @@ public class Login {
             {
                 System.out.println("Can't open");
             }
-            System.out.println("Success");
         }
         else
         {
