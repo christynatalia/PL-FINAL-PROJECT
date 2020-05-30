@@ -20,6 +20,7 @@ public class DeleteData {
         int updateQty = 0;
         int SUpdateQty = 0;
 
+
         String mysql = "SELECT * FROM things_table WHERE Nameid=? AND Name=?";
         PreparedStatement prepstat1 = connectt.getPrepstat(mysql);
         try

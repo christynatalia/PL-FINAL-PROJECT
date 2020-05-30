@@ -59,11 +59,14 @@ public class InventoryData implements Initializable {
 
 
     public void BackButton() throws IOException {
+        Stage stage = (Stage) BtnBack.getScene().getWindow();
+        stage.close();
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("Menu.fxml"));
         Parent root1 = fxmlLoader.<Parent>load();
         Stage st = new Stage();
         st.setScene(new Scene(root1));
         st.show();
+
     }
 
 

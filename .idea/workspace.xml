@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="" />
+    <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/DeleteData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/DeleteData.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -65,10 +69,11 @@
     </FindUsagesManager>
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/FINALPROJECT-PL" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
   <component name="ProjectId" id="1ccAWrOEDN9kFXvyAKtHR8Wte9e" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectReloadState">
     <option name="STATE" value="0" />
   </component>
@@ -92,6 +97,7 @@
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="recentsLimit" value="5" />
+    <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
   </component>
   <component name="RunManager">
     <configuration default="true" type="Applet" factoryName="Applet">
@@ -184,7 +190,8 @@
       <option name="presentableId" value="Default" />
       <updated>1359379246138</updated>
       <workItem from="1359379250712" duration="1302000" />
-      <workItem from="1590817546453" duration="925000" />
+      <workItem from="1590817546453" duration="1444000" />
+      <workItem from="1590819039099" duration="46000" />
     </task>
     <servers />
   </component>
@@ -194,35 +201,43 @@
   <component name="VcsManagerConfiguration">
     <option name="OFFER_MOVE_TO_ANOTHER_CHANGELIST_ON_PARTIAL_COMMIT" value="true" />
     <option name="INCLUDE_TEXT_INTO_SHELF" value="false" />
+    <ignored-roots>
+      <path value="$PROJECT_DIR$/FINALPROJECT-PL" />
+    </ignored-roots>
   </component>
   <component name="WindowStateProjectService">
-    <state width="1369" height="214" key="GridCell.Tab.0.bottom" timestamp="1590818646117">
-      <screen x="0" y="23" width="1440" height="833" />
+    <state width="1369" height="214" key="GridCell.Tab.0.bottom" timestamp="1590819171106">
+      <screen x="0" y="23" width="1440" height="831" />
     </state>
+    <state width="1369" height="214" key="GridCell.Tab.0.bottom/0.23.1440.831@0.23.1440.831" timestamp="1590819171106" />
     <state width="1369" height="214" key="GridCell.Tab.0.bottom/0.23.1440.832@0.23.1440.832" timestamp="1590818187602" />
-    <state width="1369" height="214" key="GridCell.Tab.0.bottom/0.23.1440.833@0.23.1440.833" timestamp="1590818646117" />
+    <state width="1369" height="214" key="GridCell.Tab.0.bottom/0.23.1440.833@0.23.1440.833" timestamp="1590818994574" />
     <state width="1369" height="214" key="GridCell.Tab.0.bottom/0.23.1440.834@0.23.1440.834" timestamp="1590818336446" />
-    <state width="1369" height="214" key="GridCell.Tab.0.center" timestamp="1590818646116">
-      <screen x="0" y="23" width="1440" height="833" />
+    <state width="1369" height="214" key="GridCell.Tab.0.center" timestamp="1590819171106">
+      <screen x="0" y="23" width="1440" height="831" />
     </state>
+    <state width="1369" height="214" key="GridCell.Tab.0.center/0.23.1440.831@0.23.1440.831" timestamp="1590819171106" />
     <state width="1369" height="214" key="GridCell.Tab.0.center/0.23.1440.832@0.23.1440.832" timestamp="1590818187602" />
-    <state width="1369" height="214" key="GridCell.Tab.0.center/0.23.1440.833@0.23.1440.833" timestamp="1590818646116" />
+    <state width="1369" height="214" key="GridCell.Tab.0.center/0.23.1440.833@0.23.1440.833" timestamp="1590818994574" />
     <state width="1369" height="214" key="GridCell.Tab.0.center/0.23.1440.834@0.23.1440.834" timestamp="1590818336446" />
-    <state width="1369" height="214" key="GridCell.Tab.0.left" timestamp="1590818646116">
-      <screen x="0" y="23" width="1440" height="833" />
+    <state width="1369" height="214" key="GridCell.Tab.0.left" timestamp="1590819171105">
+      <screen x="0" y="23" width="1440" height="831" />
     </state>
+    <state width="1369" height="214" key="GridCell.Tab.0.left/0.23.1440.831@0.23.1440.831" timestamp="1590819171105" />
     <state width="1369" height="214" key="GridCell.Tab.0.left/0.23.1440.832@0.23.1440.832" timestamp="1590818187601" />
-    <state width="1369" height="214" key="GridCell.Tab.0.left/0.23.1440.833@0.23.1440.833" timestamp="1590818646116" />
+    <state width="1369" height="214" key="GridCell.Tab.0.left/0.23.1440.833@0.23.1440.833" timestamp="1590818994574" />
     <state width="1369" height="214" key="GridCell.Tab.0.left/0.23.1440.834@0.23.1440.834" timestamp="1590818336445" />
-    <state width="1369" height="214" key="GridCell.Tab.0.right" timestamp="1590818646117">
-      <screen x="0" y="23" width="1440" height="833" />
+    <state width="1369" height="214" key="GridCell.Tab.0.right" timestamp="1590819171106">
+      <screen x="0" y="23" width="1440" height="831" />
     </state>
+    <state width="1369" height="214" key="GridCell.Tab.0.right/0.23.1440.831@0.23.1440.831" timestamp="1590819171106" />
     <state width="1369" height="214" key="GridCell.Tab.0.right/0.23.1440.832@0.23.1440.832" timestamp="1590818187602" />
-    <state width="1369" height="214" key="GridCell.Tab.0.right/0.23.1440.833@0.23.1440.833" timestamp="1590818646117" />
+    <state width="1369" height="214" key="GridCell.Tab.0.right/0.23.1440.833@0.23.1440.833" timestamp="1590818994574" />
     <state width="1369" height="214" key="GridCell.Tab.0.right/0.23.1440.834@0.23.1440.834" timestamp="1590818336446" />
-    <state x="222" y="23" width="1024" height="833" key="SettingsEditor" timestamp="1590817620137">
-      <screen x="0" y="23" width="1440" height="833" />
+    <state x="222" y="23" width="1024" height="833" key="SettingsEditor" timestamp="1590819084592">
+      <screen x="0" y="23" width="1440" height="830" />
     </state>
+    <state x="222" y="23" key="SettingsEditor/0.23.1440.830@0.23.1440.830" timestamp="1590819084592" />
     <state x="222" y="23" width="1024" height="833" key="SettingsEditor/0.23.1440.833@0.23.1440.833" timestamp="1590817620137" />
   </component>
 </project>
