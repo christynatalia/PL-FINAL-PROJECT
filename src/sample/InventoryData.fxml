@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="400.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.InventoryData">
+    <children>
+        <TextField fx:id="tfnameid" layoutX="122.0" layoutY="63.0" />
+        <TextField fx:id="tfname" layoutX="122.0" layoutY="120.0" />
+        <TextField fx:id="tfqty" layoutX="122.0" layoutY="173.0" />
+        <TextField fx:id="tfprice" layoutX="122.0" layoutY="229.0" />
+        <Button fx:id="btnadd" layoutX="134.0" layoutY="297.0" mnemonicParsing="false" onAction="#addData" text="Add" />
+        <Label layoutX="45.0" layoutY="68.0" text="Name ID" />
+        <Label layoutX="45.0" layoutY="125.0" text="Name" />
+        <Label layoutX="45.0" layoutY="178.0" text="Quantity" />
+        <Label layoutX="45.0" layoutY="240.0" text="Price" />
+        <Button fx:id="BtnBack" layoutX="55.0" layoutY="297.0" mnemonicParsing="false" onAction="#BackButton" text="Back" />
+        <Button fx:id="BtnQuit1" layoutX="210.0" layoutY="297.0" mnemonicParsing="false" onAction="#ExitButton" text="Exit" />
+        <TableView fx:id="tvResult" layoutX="293.0" layoutY="32.0" prefHeight="357.0" prefWidth="391.0" />
+        <Button fx:id="BtnUpdate" layoutX="95.0" layoutY="342.0" mnemonicParsing="false" onAction="#UpdateData" text="Update" />
+        <Button fx:id="BtnAddQty" layoutX="175.0" layoutY="342.0" mnemonicParsing="false" onAction="#addQuantity" text="Add Quantity" />
+        <Button fx:id="Btndelete" layoutX="28.0" layoutY="342.0" mnemonicParsing="false" onAction="#DeleteData" text="Delete" />
+    </children>
+</AnchorPane>

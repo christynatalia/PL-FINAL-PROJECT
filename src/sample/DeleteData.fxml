@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.DeleteData">
+    <children>
+        <Button fx:id="BtnSAdd" layoutX="125.0" layoutY="290.0" mnemonicParsing="false" onAction="#CheckData" text="Add Data" />
+        <TextField fx:id="TFDProdName" layoutX="139.0" layoutY="125.0" />
+        <TextField fx:id="TFDQty" layoutX="139.0" layoutY="173.0" />
+        <TextField fx:id="TFDProdID" layoutX="139.0" layoutY="76.0" />
+        <Label layoutX="36.0" layoutY="81.0" text="Product ID" />
+        <Label layoutX="36.0" layoutY="130.0" text="Product Name" />
+        <Label layoutX="36.0" layoutY="178.0" text="Quantity" />
+    </children>
+</AnchorPane>
