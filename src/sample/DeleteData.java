@@ -1,16 +1,21 @@
 package sample;
 
 import Connectivity.Connect;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
+import javafx.stage.Stage;
 
+import java.io.IOException;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class DeleteData {
     Connect connectt = new Connect();
-    public Button BtnSAdd;
+    public Button BtnSAdd,BtnSBack, BtnSExit;
     public TextField TFDProdID, TFDProdName, TFDQty;
 
     public void CheckData(){
@@ -121,5 +126,23 @@ public class DeleteData {
         {
             System.out.println(e.getMessage());
         }
+    }
+
+
+    public void BackButton() throws IOException {
+        Stage stage = (Stage) BtnSBack.getScene().getWindow();
+        stage.close();
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("Menu.fxml"));
+        Parent root1 = fxmlLoader.<Parent>load();
+        Stage st = new Stage();
+        st.setScene(new Scene(root1));
+        st.show();
+
+    }
+
+
+    public void ExitButton(){
+        Stage stage = (Stage) BtnSExit.getScene().getWindow();
+        stage.close();
     }
 }
