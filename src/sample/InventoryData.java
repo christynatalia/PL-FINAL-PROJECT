@@ -161,18 +161,46 @@ public class InventoryData implements Initializable {
 
     }
 
+    public void CheckValidData(){
+        int nameid = Integer.parseInt(tfnameid.getText());
+
+
+
+    }
+
     public void DeleteData(){
         int nameid = Integer.parseInt(tfnameid.getText());
-        String sql = "DELETE FROM things_table WHERE Nameid=?";
-        PreparedStatement prepstat = connectt.getPrepstat(sql);
-        try{
-            prepstat.setInt(1,nameid);
-            prepstat.executeUpdate();
-            refreshTable();
+        String name = tfname.getText();
+        String sql = "SELECT * FROM things_table WHERE Nameid=? AND Name=?";
+        PreparedStatement pr1 = connectt.getPrepstat(sql);
+        try {
+            pr1.setInt(1,nameid);
+            pr1.setString(2,name);
+            ResultSet rs1 = pr1.executeQuery();
+            if (rs1.next())
+            {
+                String sql1 = "DELETE FROM things_table WHERE Nameid=?";
+                PreparedStatement prepstat = connectt.getPrepstat(sql1);
+                try{
+                    prepstat.setInt(1,nameid);
+                    prepstat.executeUpdate();
+                    refreshTable();
+                }
+                catch(SQLException e){
+                    e.getMessage();
+                }
+            }
+            else
+            {
+                System.out.println("There is no data");
+
+            }
         }
-        catch(SQLException e){
-            e.getMessage();
+        catch(SQLException eq)
+        {
+            System.out.println(eq.getMessage());
         }
+
 
     }
 

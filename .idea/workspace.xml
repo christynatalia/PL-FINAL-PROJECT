@@ -1,10 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="">
+    <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="Back and Exit Button for Sales">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/DeleteData.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/DeleteData.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/DeleteData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/DeleteData.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/FINALPROJECT-PL/sample/DeleteData.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/FINALPROJECT-PL/sample/DeleteData.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/FINALPROJECT-PL/sample/DeleteData.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/FINALPROJECT-PL/sample/DeleteData.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/FINALPROJECT-PL/sample/InventoryData.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/FINALPROJECT-PL/sample/InventoryData.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/InventoryData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/InventoryData.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/SalesThings.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/SalesThings.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -192,12 +195,35 @@
       <workItem from="1359379250712" duration="1302000" />
       <workItem from="1590817546453" duration="1444000" />
       <workItem from="1590819039099" duration="834000" />
-      <workItem from="1590821899248" duration="420000" />
+      <workItem from="1590821899248" duration="553000" />
+      <workItem from="1590910201474" duration="501000" />
+      <workItem from="1590911556542" duration="590000" />
     </task>
+    <task id="LOCAL-00001" summary="Back and Exit Button for Sales">
+      <created>1590823046003</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1590823046003</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="VcsManagerConfiguration">
     <option name="OFFER_MOVE_TO_ANOTHER_CHANGELIST_ON_PARTIAL_COMMIT" value="true" />
@@ -205,37 +231,47 @@
     <ignored-roots>
       <path value="$PROJECT_DIR$/FINALPROJECT-PL" />
     </ignored-roots>
+    <MESSAGE value="Back and Exit Button for Sales" />
+    <option name="LAST_COMMIT_MESSAGE" value="Back and Exit Button for Sales" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="518" y="162" key="#com.intellij.ide.util.MemberChooser" timestamp="1590910459713">
+      <screen x="0" y="23" width="1440" height="830" />
+    </state>
+    <state x="518" y="162" key="#com.intellij.ide.util.MemberChooser/0.23.1440.830@0.23.1440.830" timestamp="1590910459713" />
     <state x="472" y="332" width="467" height="225" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes" timestamp="1590821911743">
       <screen x="0" y="23" width="1440" height="831" />
     </state>
     <state x="472" y="332" width="467" height="225" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes/0.23.1440.831@0.23.1440.831" timestamp="1590821911743" />
-    <state width="1369" height="214" key="GridCell.Tab.0.bottom" timestamp="1590822977730">
+    <state x="302" y="42" key="CommitChangelistDialog2" timestamp="1590911671288">
       <screen x="0" y="23" width="1440" height="831" />
     </state>
-    <state width="1369" height="214" key="GridCell.Tab.0.bottom/0.23.1440.831@0.23.1440.831" timestamp="1590822977730" />
+    <state x="302" y="42" key="CommitChangelistDialog2/0.23.1440.831@0.23.1440.831" timestamp="1590911671288" />
+    <state width="1369" height="214" key="GridCell.Tab.0.bottom" timestamp="1590912152059">
+      <screen x="0" y="23" width="1440" height="831" />
+    </state>
+    <state width="1369" height="214" key="GridCell.Tab.0.bottom/0.23.1440.831@0.23.1440.831" timestamp="1590912152059" />
     <state width="1369" height="214" key="GridCell.Tab.0.bottom/0.23.1440.832@0.23.1440.832" timestamp="1590818187602" />
     <state width="1369" height="214" key="GridCell.Tab.0.bottom/0.23.1440.833@0.23.1440.833" timestamp="1590818994574" />
     <state width="1369" height="214" key="GridCell.Tab.0.bottom/0.23.1440.834@0.23.1440.834" timestamp="1590818336446" />
-    <state width="1369" height="214" key="GridCell.Tab.0.center" timestamp="1590822977729">
+    <state width="1369" height="214" key="GridCell.Tab.0.center" timestamp="1590912152059">
       <screen x="0" y="23" width="1440" height="831" />
     </state>
-    <state width="1369" height="214" key="GridCell.Tab.0.center/0.23.1440.831@0.23.1440.831" timestamp="1590822977729" />
+    <state width="1369" height="214" key="GridCell.Tab.0.center/0.23.1440.831@0.23.1440.831" timestamp="1590912152059" />
     <state width="1369" height="214" key="GridCell.Tab.0.center/0.23.1440.832@0.23.1440.832" timestamp="1590818187602" />
     <state width="1369" height="214" key="GridCell.Tab.0.center/0.23.1440.833@0.23.1440.833" timestamp="1590818994574" />
     <state width="1369" height="214" key="GridCell.Tab.0.center/0.23.1440.834@0.23.1440.834" timestamp="1590818336446" />
-    <state width="1369" height="214" key="GridCell.Tab.0.left" timestamp="1590822977729">
+    <state width="1369" height="214" key="GridCell.Tab.0.left" timestamp="1590912152059">
       <screen x="0" y="23" width="1440" height="831" />
     </state>
-    <state width="1369" height="214" key="GridCell.Tab.0.left/0.23.1440.831@0.23.1440.831" timestamp="1590822977729" />
+    <state width="1369" height="214" key="GridCell.Tab.0.left/0.23.1440.831@0.23.1440.831" timestamp="1590912152059" />
     <state width="1369" height="214" key="GridCell.Tab.0.left/0.23.1440.832@0.23.1440.832" timestamp="1590818187601" />
     <state width="1369" height="214" key="GridCell.Tab.0.left/0.23.1440.833@0.23.1440.833" timestamp="1590818994574" />
     <state width="1369" height="214" key="GridCell.Tab.0.left/0.23.1440.834@0.23.1440.834" timestamp="1590818336445" />
-    <state width="1369" height="214" key="GridCell.Tab.0.right" timestamp="1590822977730">
+    <state width="1369" height="214" key="GridCell.Tab.0.right" timestamp="1590912152059">
       <screen x="0" y="23" width="1440" height="831" />
     </state>
-    <state width="1369" height="214" key="GridCell.Tab.0.right/0.23.1440.831@0.23.1440.831" timestamp="1590822977730" />
+    <state width="1369" height="214" key="GridCell.Tab.0.right/0.23.1440.831@0.23.1440.831" timestamp="1590912152059" />
     <state width="1369" height="214" key="GridCell.Tab.0.right/0.23.1440.832@0.23.1440.832" timestamp="1590818187602" />
     <state width="1369" height="214" key="GridCell.Tab.0.right/0.23.1440.833@0.23.1440.833" timestamp="1590818994574" />
     <state width="1369" height="214" key="GridCell.Tab.0.right/0.23.1440.834@0.23.1440.834" timestamp="1590818336446" />
