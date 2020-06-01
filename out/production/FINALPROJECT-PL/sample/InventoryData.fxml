@@ -20,5 +20,7 @@
         <Button fx:id="BtnUpdate" layoutX="95.0" layoutY="342.0" mnemonicParsing="false" onAction="#UpdateData" text="Update" />
         <Button fx:id="BtnAddQty" layoutX="175.0" layoutY="342.0" mnemonicParsing="false" onAction="#addQuantity" text="Add Quantity" />
         <Button fx:id="Btndelete" layoutX="28.0" layoutY="342.0" mnemonicParsing="false" onAction="#DeleteData" text="Delete" />
+      <ChoiceBox fx:id="choicebox1" layoutX="122.0" layoutY="19.0" prefWidth="150.0" />
+      <Button fx:id="loadData1" layoutX="28.0" layoutY="19.0" mnemonicParsing="false" onAction="#LoadBtn" text="Load Data" />
     </children>
 </AnchorPane>

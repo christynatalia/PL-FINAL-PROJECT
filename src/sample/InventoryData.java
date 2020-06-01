@@ -20,11 +20,13 @@ import javafx.stage.Stage;
 public class InventoryData implements Initializable {
 
     Connect connectt = new Connect();
-    public Button btnadd, BtnBack, BtnQuit1, BtnAddQty, Btndelete;
-    public TextField tfnameid , tfname , tfqty , tfprice ;
+    public Button btnadd, BtnBack, BtnQuit1, BtnAddQty, Btndelete,loadData1;
+    public TextField tfnameid, tfname, tfqty, tfprice;
     public TableView tvResult;
+    public ChoiceBox<String> choicebox1;
+    ObservableList typelist = FXCollections.observableArrayList("Inventory", "Sales");
     ObservableList<Things> data = FXCollections.observableArrayList();
-
+    ObservableList<SalesThings>SalesData = FXCollections.observableArrayList();
 
 
     public void addData() {
@@ -50,7 +52,7 @@ public class InventoryData implements Initializable {
 
     }
 
-    public void autoErase(){
+    public void autoErase() {
         tfname.setText("");
         tfnameid.setText("");
         tfqty.setText("");
@@ -70,23 +72,23 @@ public class InventoryData implements Initializable {
     }
 
 
-    public void ExitButton(){
+    public void ExitButton() {
         Stage stage = (Stage) BtnQuit1.getScene().getWindow();
         stage.close();
     }
 
 
-    public void UpdateData(){
+    public void UpdateData() {
         int nameid = Integer.parseInt(tfnameid.getText());
         String name = tfname.getText();
         int qty = Integer.parseInt(tfqty.getText());
         int price = Integer.parseInt(tfprice.getText());
 
-        String sql = "UPDATE things_table SET Price=? WHERE Nameid=?" ;
+        String sql = "UPDATE things_table SET Price=? WHERE Nameid=?";
         PreparedStatement prepstatt = connectt.getPrepstat(sql);
         try {
 
-            prepstatt.setInt(1,price);
+            prepstatt.setInt(1, price);
             prepstatt.setInt(2, nameid);
             prepstatt.executeUpdate();
             refreshTable();
@@ -96,19 +98,36 @@ public class InventoryData implements Initializable {
     }
 
 
-    public void refreshTable(){
+    public void refreshTable() {
         data.clear();
         String sql = "SELECT * FROM things_table";
         PreparedStatement prepstatt = connectt.getPrepstat(sql);
         try {
 
             ResultSet rs = prepstatt.executeQuery();
-            while (rs.next()){
-                data.add(new Things(rs.getInt("Nameid"),rs.getString("Name"),rs.getInt("Quantity"),
+            while (rs.next()) {
+                data.add(new Things(rs.getInt("Nameid"), rs.getString("Name"), rs.getInt("Quantity"),
                         rs.getInt("Price")));
             }
         } catch (SQLException e) {
             e.printStackTrace();
+        }
+    }
+
+
+    public void RefreshSalesTable(){
+        data.clear();
+        String sql = "SElect * FROM Sales_table";
+        PreparedStatement prepstat = connectt.getPrepstat(sql);
+        try{
+            ResultSet rs = prepstat.executeQuery();
+            while(rs.next()){
+                SalesData.add(new SalesThings(rs.getInt("SProdID"),rs.getString("SProdName"),rs.getInt("SProdQty")));
+            }
+        }
+        catch(SQLException es)
+        {
+            System.out.println(es.getMessage());
         }
     }
 
@@ -119,116 +138,122 @@ public class InventoryData implements Initializable {
         int updateQty = 0;
 
 
-
         String sql = "SELECT * FROM things_table WHERE Nameid=? AND Name=?";
         PreparedStatement prepstatt = connectt.getPrepstat(sql);
-        try
-        {
+        try {
             prepstatt.setInt(1, nameid);
-            prepstatt.setString(2,name);
+            prepstatt.setString(2, name);
             ResultSet rs = prepstatt.executeQuery();
 
             //to check if the data is exist or not.
-            if(rs.next())
-            {
+            if (rs.next()) {
                 updateQty = qty + rs.getInt("Quantity");
                 String mysql = "UPDATE things_table SET Quantity=? WHERE Nameid=?";
                 PreparedStatement prepstat = connectt.getPrepstat(mysql);
                 try {
-                    prepstat.setInt(1,updateQty);
-                    prepstat.setInt(2,nameid);
+                    prepstat.setInt(1, updateQty);
+                    prepstat.setInt(2, nameid);
                     prepstat.executeUpdate();
                     refreshTable();
                 } catch (SQLException e) {
                     e.getMessage();
                 }
-            }
-
-            else
-            {
+            } else {
                 Alert al = new Alert(Alert.AlertType.WARNING);
                 al.setTitle("WARNING!");
                 al.setContentText("THERE IS NO DATA FOR THOSE NAMEID!!!");
                 al.show();
                 autoErase();
             }
-        }
-        catch (SQLException e) {
+        } catch (SQLException e) {
             e.getMessage();
 
         }
-
-
     }
 
-    public void CheckValidData(){
-        int nameid = Integer.parseInt(tfnameid.getText());
 
-
-
-    }
-
-    public void DeleteData(){
+    public void DeleteData() {
         int nameid = Integer.parseInt(tfnameid.getText());
         String name = tfname.getText();
         String sql = "SELECT * FROM things_table WHERE Nameid=? AND Name=?";
         PreparedStatement pr1 = connectt.getPrepstat(sql);
         try {
-            pr1.setInt(1,nameid);
-            pr1.setString(2,name);
+            pr1.setInt(1, nameid);
+            pr1.setString(2, name);
             ResultSet rs1 = pr1.executeQuery();
-            if (rs1.next())
-            {
+            if (rs1.next()) {
                 String sql1 = "DELETE FROM things_table WHERE Nameid=?";
                 PreparedStatement prepstat = connectt.getPrepstat(sql1);
-                try{
-                    prepstat.setInt(1,nameid);
+                try {
+                    prepstat.setInt(1, nameid);
                     prepstat.executeUpdate();
                     refreshTable();
-                }
-                catch(SQLException e){
+                } catch (SQLException e) {
                     e.getMessage();
                 }
-            }
-            else
-            {
+            } else {
                 System.out.println("There is no data");
 
             }
-        }
-        catch(SQLException eq)
-        {
+        } catch (SQLException eq) {
             System.out.println(eq.getMessage());
         }
 
 
     }
 
+    public void LoadBtn(){
+        String choiceboxValue = choicebox1.getValue();
+        if (choiceboxValue == "Inventory") {
+            refreshTable();
+            TableColumn NameIDCol = new TableColumn("Product ID");
+            NameIDCol.setMinWidth(50);
+            NameIDCol.setCellValueFactory(
+                    new PropertyValueFactory<Things, Integer>("Nameid"));
+
+            TableColumn NameCol = new TableColumn("Product Name");
+            NameCol.setMinWidth(100);
+            NameCol.setCellValueFactory(
+                    new PropertyValueFactory<Things, String>("Name"));
+
+            TableColumn QtyCol = new TableColumn("Quantity");
+            QtyCol.setMinWidth(100);
+            QtyCol.setCellValueFactory(
+                    new PropertyValueFactory<Things, Integer>("Quantity"));
+
+            TableColumn PriceCol = new TableColumn("Price");
+            PriceCol.setMinWidth(50);
+            PriceCol.setCellValueFactory(
+                    new PropertyValueFactory<Things, Integer>("Price"));
+
+
+            tvResult.getColumns().setAll(NameIDCol, NameCol, QtyCol, PriceCol);
+            tvResult.setItems(data);
+        } else if (choiceboxValue=="Sales"){
+            RefreshSalesTable();
+            TableColumn NameIDCol = new TableColumn("Product ID");
+            NameIDCol.setMinWidth(50);
+            NameIDCol.setCellValueFactory(
+                    new PropertyValueFactory<Things, Integer>("SProdID"));
+
+            TableColumn NameCol = new TableColumn("Product Name");
+            NameCol.setMinWidth(100);
+            NameCol.setCellValueFactory(
+                    new PropertyValueFactory<Things, String>("SProdName"));
+
+            TableColumn QtyCol = new TableColumn("Quantity");
+            QtyCol.setMinWidth(100);
+            QtyCol.setCellValueFactory(
+                    new PropertyValueFactory<Things, Integer>("SProdQty"));
+            tvResult.getColumns().setAll(NameIDCol, NameCol, QtyCol);
+            tvResult.setItems(SalesData);
+
+        }
+    }
+
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        refreshTable();
-        TableColumn NameIDCol = new TableColumn("Nameid");
-        NameIDCol.setMinWidth(50);
-        NameIDCol.setCellValueFactory(
-                new PropertyValueFactory<Things, Integer>("Nameid"));
-
-        TableColumn NameCol = new TableColumn("Name");
-        NameCol.setMinWidth(100);
-        NameCol.setCellValueFactory(
-                new PropertyValueFactory<Things, String>("Name"));
-
-        TableColumn QtyCol = new TableColumn("Quantity");
-        QtyCol.setMinWidth(100);
-        QtyCol.setCellValueFactory(
-                new PropertyValueFactory<Things, Integer>("Quantity"));
-
-        TableColumn PriceCol = new TableColumn("Price");
-        PriceCol.setMinWidth(50);
-        PriceCol.setCellValueFactory(
-                new PropertyValueFactory<Things, Integer>("Price"));
-
-
-        tvResult.getColumns().setAll(NameIDCol,NameCol,QtyCol,PriceCol);
-        tvResult.setItems(data);
+        choicebox1.setItems(typelist);
     }
 }
