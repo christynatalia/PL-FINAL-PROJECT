@@ -4,6 +4,7 @@ import Connectivity.Connect;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
@@ -13,9 +14,9 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-public class DeleteData {
+public class SalesData {
     Connect connectt = new Connect();
-    public Button BtnSAdd,BtnSBack, BtnSExit;
+    public Button BtnSAdd,BtnSBack, BtnSExit, putinv;
     public TextField TFDProdID, TFDProdName, TFDQty;
 
     public void CheckData(){
@@ -79,7 +80,7 @@ public class DeleteData {
                         }
                         else
                         {
-                            System.out.println("Inventory tidak ada");
+                           AlertWarning();
                         }
                     }
 
@@ -96,7 +97,7 @@ public class DeleteData {
 
             else
             {
-                System.out.println("Data doesn't exists");
+                AlertWarning();
             }
         }
         catch(SQLException e )
@@ -138,6 +139,13 @@ public class DeleteData {
         st.setScene(new Scene(root1));
         st.show();
 
+    }
+
+    public void AlertWarning(){
+        Alert al = new Alert(Alert.AlertType.WARNING);
+        al.setTitle("Error");
+        al.setContentText("Data doesn't exist in the database.");
+        al.show();
     }
 
 

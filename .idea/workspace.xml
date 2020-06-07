@@ -3,9 +3,18 @@
   <component name="ChangeListManager">
     <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="Back and Exit Button for Sales">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/FINALPROJECT-PL/sample/DeleteData.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/FINALPROJECT-PL/sample/DeleteData.fxml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/FINALPROJECT-PL/sample/InventoryData.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/FINALPROJECT-PL/sample/InventoryData.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/FINALPROJECT-PL/sample/InventoryData.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/FINALPROJECT-PL/sample/InventoryData.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/FINALPROJECT-PL/sample/Menu.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/FINALPROJECT-PL/sample/Menu.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/DeleteData.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/SalesData.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/DeleteData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/SalesData.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/sample/InventoryData.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/InventoryData.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/sample/InventoryData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/InventoryData.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/Menu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/Menu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/SalesThings.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/SalesThings.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/Things.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/Things.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -61,6 +70,7 @@
       <list>
         <option value="FxmlFile" />
         <option value="Class" />
+        <option value="Interface" />
       </list>
     </option>
   </component>
@@ -196,7 +206,14 @@
       <workItem from="1590821899248" duration="553000" />
       <workItem from="1590910201474" duration="501000" />
       <workItem from="1590911556542" duration="590000" />
-      <workItem from="1590990768576" duration="1430000" />
+      <workItem from="1590990768576" duration="2040000" />
+      <workItem from="1590993089358" duration="788000" />
+      <workItem from="1591016097999" duration="377000" />
+      <workItem from="1591017086239" duration="93000" />
+      <workItem from="1591278605712" duration="165000" />
+      <workItem from="1591278785740" duration="117000" />
+      <workItem from="1591278935572" duration="875000" />
+      <workItem from="1591541558119" duration="2656000" />
     </task>
     <task id="LOCAL-00001" summary="Back and Exit Button for Sales">
       <created>1590823046003</created>
@@ -234,10 +251,17 @@
     <option name="LAST_COMMIT_MESSAGE" value="Back and Exit Button for Sales" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="518" y="162" key="#com.intellij.ide.util.MemberChooser" timestamp="1590910459713">
-      <screen x="0" y="23" width="1440" height="830" />
+    <state x="472" y="215" key="#com.intellij.codeInsight.editorActions.RestoreReferencesDialog" timestamp="1591541686600">
+      <screen x="0" y="23" width="1440" height="831" />
+    </state>
+    <state x="472" y="215" key="#com.intellij.codeInsight.editorActions.RestoreReferencesDialog/0.23.1440.831@0.23.1440.831" timestamp="1591541686600" />
+    <state x="472" y="215" key="#com.intellij.codeInsight.editorActions.RestoreReferencesDialog/0.23.1440.832@0.23.1440.832" timestamp="1590993307602" />
+    <state x="472" y="216" key="#com.intellij.codeInsight.editorActions.RestoreReferencesDialog/0.23.1440.835@0.23.1440.835" timestamp="1591279263091" />
+    <state x="518" y="162" key="#com.intellij.ide.util.MemberChooser" timestamp="1590993521422">
+      <screen x="0" y="23" width="1440" height="832" />
     </state>
     <state x="518" y="162" key="#com.intellij.ide.util.MemberChooser/0.23.1440.830@0.23.1440.830" timestamp="1590910459713" />
+    <state x="518" y="162" key="#com.intellij.ide.util.MemberChooser/0.23.1440.832@0.23.1440.832" timestamp="1590993521422" />
     <state x="472" y="332" width="467" height="225" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes" timestamp="1590821911743">
       <screen x="0" y="23" width="1440" height="831" />
     </state>
@@ -247,38 +271,50 @@
     </state>
     <state x="302" y="42" key="CommitChangelistDialog2/0.23.1440.831@0.23.1440.831" timestamp="1590911671288" />
     <state x="302" y="42" key="CommitChangelistDialog2/0.23.1440.833@0.23.1440.833" timestamp="1590992231847" />
-    <state width="1369" height="214" key="GridCell.Tab.0.bottom" timestamp="1590992203502">
-      <screen x="0" y="23" width="1440" height="833" />
+    <state width="1369" height="214" key="GridCell.Tab.0.bottom" timestamp="1591544158241">
+      <screen x="0" y="23" width="1440" height="832" />
     </state>
     <state width="1369" height="214" key="GridCell.Tab.0.bottom/0.23.1440.831@0.23.1440.831" timestamp="1590912152059" />
-    <state width="1369" height="214" key="GridCell.Tab.0.bottom/0.23.1440.832@0.23.1440.832" timestamp="1590818187602" />
-    <state width="1369" height="214" key="GridCell.Tab.0.bottom/0.23.1440.833@0.23.1440.833" timestamp="1590992203502" />
+    <state width="1369" height="214" key="GridCell.Tab.0.bottom/0.23.1440.832@0.23.1440.832" timestamp="1591544158241" />
+    <state width="1369" height="214" key="GridCell.Tab.0.bottom/0.23.1440.833@0.23.1440.833" timestamp="1590993073046" />
     <state width="1369" height="214" key="GridCell.Tab.0.bottom/0.23.1440.834@0.23.1440.834" timestamp="1590818336446" />
-    <state width="1369" height="214" key="GridCell.Tab.0.center" timestamp="1590992203501">
-      <screen x="0" y="23" width="1440" height="833" />
+    <state width="1369" height="214" key="GridCell.Tab.0.bottom/0.23.1440.837@0.23.1440.837" timestamp="1591279812207" />
+    <state width="1369" height="214" key="GridCell.Tab.0.center" timestamp="1591544158240">
+      <screen x="0" y="23" width="1440" height="832" />
     </state>
     <state width="1369" height="214" key="GridCell.Tab.0.center/0.23.1440.831@0.23.1440.831" timestamp="1590912152059" />
-    <state width="1369" height="214" key="GridCell.Tab.0.center/0.23.1440.832@0.23.1440.832" timestamp="1590818187602" />
-    <state width="1369" height="214" key="GridCell.Tab.0.center/0.23.1440.833@0.23.1440.833" timestamp="1590992203501" />
+    <state width="1369" height="214" key="GridCell.Tab.0.center/0.23.1440.832@0.23.1440.832" timestamp="1591544158240" />
+    <state width="1369" height="214" key="GridCell.Tab.0.center/0.23.1440.833@0.23.1440.833" timestamp="1590993073045" />
     <state width="1369" height="214" key="GridCell.Tab.0.center/0.23.1440.834@0.23.1440.834" timestamp="1590818336446" />
-    <state width="1369" height="214" key="GridCell.Tab.0.left" timestamp="1590992203501">
-      <screen x="0" y="23" width="1440" height="833" />
+    <state width="1369" height="214" key="GridCell.Tab.0.center/0.23.1440.837@0.23.1440.837" timestamp="1591279812207" />
+    <state width="1369" height="214" key="GridCell.Tab.0.left" timestamp="1591544158240">
+      <screen x="0" y="23" width="1440" height="832" />
     </state>
     <state width="1369" height="214" key="GridCell.Tab.0.left/0.23.1440.831@0.23.1440.831" timestamp="1590912152059" />
-    <state width="1369" height="214" key="GridCell.Tab.0.left/0.23.1440.832@0.23.1440.832" timestamp="1590818187601" />
-    <state width="1369" height="214" key="GridCell.Tab.0.left/0.23.1440.833@0.23.1440.833" timestamp="1590992203501" />
+    <state width="1369" height="214" key="GridCell.Tab.0.left/0.23.1440.832@0.23.1440.832" timestamp="1591544158240" />
+    <state width="1369" height="214" key="GridCell.Tab.0.left/0.23.1440.833@0.23.1440.833" timestamp="1590993073045" />
     <state width="1369" height="214" key="GridCell.Tab.0.left/0.23.1440.834@0.23.1440.834" timestamp="1590818336445" />
-    <state width="1369" height="214" key="GridCell.Tab.0.right" timestamp="1590992203501">
-      <screen x="0" y="23" width="1440" height="833" />
+    <state width="1369" height="214" key="GridCell.Tab.0.left/0.23.1440.837@0.23.1440.837" timestamp="1591279812207" />
+    <state width="1369" height="214" key="GridCell.Tab.0.right" timestamp="1591544158241">
+      <screen x="0" y="23" width="1440" height="832" />
     </state>
     <state width="1369" height="214" key="GridCell.Tab.0.right/0.23.1440.831@0.23.1440.831" timestamp="1590912152059" />
-    <state width="1369" height="214" key="GridCell.Tab.0.right/0.23.1440.832@0.23.1440.832" timestamp="1590818187602" />
-    <state width="1369" height="214" key="GridCell.Tab.0.right/0.23.1440.833@0.23.1440.833" timestamp="1590992203501" />
+    <state width="1369" height="214" key="GridCell.Tab.0.right/0.23.1440.832@0.23.1440.832" timestamp="1591544158241" />
+    <state width="1369" height="214" key="GridCell.Tab.0.right/0.23.1440.833@0.23.1440.833" timestamp="1590993073046" />
     <state width="1369" height="214" key="GridCell.Tab.0.right/0.23.1440.834@0.23.1440.834" timestamp="1590818336446" />
+    <state width="1369" height="214" key="GridCell.Tab.0.right/0.23.1440.837@0.23.1440.837" timestamp="1591279812207" />
     <state x="222" y="23" width="1024" height="833" key="SettingsEditor" timestamp="1590819084592">
       <screen x="0" y="23" width="1440" height="830" />
     </state>
     <state x="222" y="23" key="SettingsEditor/0.23.1440.830@0.23.1440.830" timestamp="1590819084592" />
     <state x="222" y="23" width="1024" height="833" key="SettingsEditor/0.23.1440.833@0.23.1440.833" timestamp="1590817620137" />
+    <state x="85" y="147" key="new project wizard" timestamp="1591278629526">
+      <screen x="0" y="23" width="1440" height="834" />
+    </state>
+    <state x="85" y="147" key="new project wizard/0.23.1440.834@0.23.1440.834" timestamp="1591278629526" />
+    <state x="497" y="65" key="refactoring.ChangeSignatureDialog" timestamp="1590993400231">
+      <screen x="0" y="23" width="1440" height="832" />
+    </state>
+    <state x="497" y="65" key="refactoring.ChangeSignatureDialog/0.23.1440.832@0.23.1440.832" timestamp="1590993400231" />
   </component>
 </project>

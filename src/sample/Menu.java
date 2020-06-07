@@ -31,7 +31,7 @@ public class Menu {
         Stage stage = (Stage) BtnAddData.getScene().getWindow();
         stage.close();
         try {
-            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("DeleteData.fxml"));
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("SalesData.fxml"));
             Parent root1 = fxmlLoader.<Parent>load();
             Stage st = new Stage();
             st.setScene(new Scene(root1));

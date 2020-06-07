@@ -3,7 +3,7 @@ package sample;
 import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleStringProperty;
 
-public class Things {
+public class Things implements interfcthings{
     private SimpleIntegerProperty Nameid;
     private SimpleStringProperty Name;
     private SimpleIntegerProperty Quantity;

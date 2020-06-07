@@ -3,7 +3,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.DeleteData">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.SalesData">
     <children>
         <Button fx:id="BtnSAdd" layoutX="156.0" layoutY="230.0" mnemonicParsing="false" onAction="#CheckData" text="Add Data to Sales" />
         <TextField fx:id="TFDProdName" layoutX="139.0" layoutY="125.0" />
@@ -14,5 +14,7 @@
         <Label layoutX="36.0" layoutY="178.0" text="Quantity" />
       <Button fx:id="BtnSBack" layoutX="32.0" layoutY="230.0" mnemonicParsing="false" onAction="#BackButton" text="Back" />
       <Button fx:id="BtnSExit" layoutX="98.0" layoutY="230.0" mnemonicParsing="false" onAction="#ExitButton" text="Exit" />
+      <TableView layoutX="331.0" layoutY="53.0" prefHeight="294.0" prefWidth="255.0" />
+      <Button fx:id="putinv" layoutX="67.0" layoutY="277.0" mnemonicParsing="false" text="Put Data to Inventory" />
     </children>
 </AnchorPane>

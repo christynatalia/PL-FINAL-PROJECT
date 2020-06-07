@@ -13,6 +13,8 @@ import java.net.URL;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.Optional;
 import java.util.ResourceBundle;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
@@ -27,7 +29,6 @@ public class InventoryData implements Initializable {
     ObservableList typelist = FXCollections.observableArrayList("Inventory", "Sales");
     ObservableList<Things> data = FXCollections.observableArrayList();
     ObservableList<SalesThings>SalesData = FXCollections.observableArrayList();
-
 
     public void addData() {
         int nameid = Integer.parseInt(tfnameid.getText());
@@ -73,8 +74,17 @@ public class InventoryData implements Initializable {
 
 
     public void ExitButton() {
-        Stage stage = (Stage) BtnQuit1.getScene().getWindow();
-        stage.close();
+        Alert al = new Alert(Alert.AlertType.CONFIRMATION,"Are you sure you want to exit this program? ):");
+        Optional<ButtonType> rs = al.showAndWait();
+        ButtonType button = rs.orElse(ButtonType.OK);
+        if (button == ButtonType.OK) {
+            Stage stage = (Stage) BtnQuit1.getScene().getWindow();
+            stage.close();
+        }
+        else
+        {
+            System.out.println("cancelled");
+        }
     }
 
 
@@ -84,16 +94,35 @@ public class InventoryData implements Initializable {
         int qty = Integer.parseInt(tfqty.getText());
         int price = Integer.parseInt(tfprice.getText());
 
-        String sql = "UPDATE things_table SET Price=? WHERE Nameid=?";
-        PreparedStatement prepstatt = connectt.getPrepstat(sql);
+        String mysql = "SELECT * FROM things_table WHERE Nameid=?";
+        PreparedStatement p1 = connectt.getPrepstat(mysql);
         try {
+            p1.setInt(1,nameid);
+            ResultSet rs = p1.executeQuery();
+            if (rs.next()) {
+                String sql = "UPDATE things_table SET Price=? WHERE Nameid=?";
+                PreparedStatement prepstatt = connectt.getPrepstat(sql);
+                try {
 
-            prepstatt.setInt(1, price);
-            prepstatt.setInt(2, nameid);
-            prepstatt.executeUpdate();
-            refreshTable();
-        } catch (SQLException e) {
-            System.out.println(e.getMessage());
+                    prepstatt.setInt(1, price);
+                    prepstatt.setInt(2, nameid);
+                    prepstatt.executeUpdate();
+                    refreshTable();
+                } catch (SQLException e) {
+                    System.out.println(e.getMessage());
+                }
+            }
+            else
+            {
+                Alert al = new Alert(Alert.AlertType.WARNING);
+                al.setTitle("WARNING!");
+                al.setContentText("Data doesn't exist!");
+                al.show();
+            }
+        }
+        catch(SQLException es)
+        {
+            System.out.println(es.getMessage());
         }
     }
 
@@ -116,7 +145,7 @@ public class InventoryData implements Initializable {
 
 
     public void RefreshSalesTable(){
-        data.clear();
+        SalesData.clear();
         String sql = "SElect * FROM Sales_table";
         PreparedStatement prepstat = connectt.getPrepstat(sql);
         try{
@@ -175,32 +204,40 @@ public class InventoryData implements Initializable {
     public void DeleteData() {
         int nameid = Integer.parseInt(tfnameid.getText());
         String name = tfname.getText();
-        String sql = "SELECT * FROM things_table WHERE Nameid=? AND Name=?";
-        PreparedStatement pr1 = connectt.getPrepstat(sql);
-        try {
-            pr1.setInt(1, nameid);
-            pr1.setString(2, name);
-            ResultSet rs1 = pr1.executeQuery();
-            if (rs1.next()) {
-                String sql1 = "DELETE FROM things_table WHERE Nameid=?";
-                PreparedStatement prepstat = connectt.getPrepstat(sql1);
-                try {
-                    prepstat.setInt(1, nameid);
-                    prepstat.executeUpdate();
-                    refreshTable();
-                } catch (SQLException e) {
-                    e.getMessage();
+
+        Alert al = new Alert(Alert.AlertType.CONFIRMATION, "Are you sure you want to delete" + name);
+        Optional<ButtonType> rs = al.showAndWait();
+        ButtonType button = rs.orElse(ButtonType.OK);
+        if (button == ButtonType.OK) {
+            String sql = "SELECT * FROM things_table WHERE Nameid=? AND Name=?";
+            PreparedStatement pr1 = connectt.getPrepstat(sql);
+            try {
+                pr1.setInt(1, nameid);
+                pr1.setString(2, name);
+                ResultSet rs1 = pr1.executeQuery();
+                if (rs1.next()) {
+                    String sql1 = "DELETE FROM things_table WHERE Nameid=?";
+                    PreparedStatement prepstat = connectt.getPrepstat(sql1);
+                    try {
+                        prepstat.setInt(1, nameid);
+                        prepstat.executeUpdate();
+                        refreshTable();
+                    } catch (SQLException e) {
+                        e.getMessage();
+                    }
+                } else {
+                    System.out.println("There is no data");
+
                 }
-            } else {
-                System.out.println("There is no data");
-
+            } catch (SQLException eq) {
+                System.out.println(eq.getMessage());
             }
-        } catch (SQLException eq) {
-            System.out.println(eq.getMessage());
         }
-
-
     }
+
+
+
+
 
     public void LoadBtn(){
         String choiceboxValue = choicebox1.getValue();
@@ -250,7 +287,6 @@ public class InventoryData implements Initializable {
 
         }
     }
-
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {

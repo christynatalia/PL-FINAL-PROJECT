@@ -3,7 +3,7 @@ package sample;
 import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleStringProperty;
 
-public class SalesThings {
+public class SalesThings{
     private SimpleIntegerProperty SProdID;
     private SimpleStringProperty SProdName;
     private SimpleIntegerProperty SProdQty;
