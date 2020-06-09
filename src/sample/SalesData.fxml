@@ -15,6 +15,6 @@
       <Button fx:id="BtnSBack" layoutX="32.0" layoutY="230.0" mnemonicParsing="false" onAction="#BackButton" text="Back" />
       <Button fx:id="BtnSExit" layoutX="98.0" layoutY="230.0" mnemonicParsing="false" onAction="#ExitButton" text="Exit" />
       <TableView layoutX="331.0" layoutY="53.0" prefHeight="294.0" prefWidth="255.0" />
-      <Button fx:id="putinv" layoutX="67.0" layoutY="277.0" mnemonicParsing="false" text="Put Data to Inventory" />
+      <Button fx:id="putinv" layoutX="67.0" layoutY="277.0" mnemonicParsing="false" onAction="#AddSalesData" text="Put Data to Inventory" />
     </children>
 </AnchorPane>

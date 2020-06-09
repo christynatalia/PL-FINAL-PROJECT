@@ -151,7 +151,7 @@ public class InventoryData implements Initializable {
         try{
             ResultSet rs = prepstat.executeQuery();
             while(rs.next()){
-                SalesData.add(new SalesThings(rs.getInt("SProdID"),rs.getString("SProdName"),rs.getInt("SProdQty")));
+                SalesData.add(new SalesThings(rs.getInt("SProdID"),rs.getString("SProdName"),rs.getInt("SProdQty"),rs.getInt("Price")));
             }
         }
         catch(SQLException es)
@@ -236,9 +236,6 @@ public class InventoryData implements Initializable {
     }
 
 
-
-
-
     public void LoadBtn(){
         String choiceboxValue = choicebox1.getValue();
         if (choiceboxValue == "Inventory") {
@@ -282,7 +279,13 @@ public class InventoryData implements Initializable {
             QtyCol.setMinWidth(100);
             QtyCol.setCellValueFactory(
                     new PropertyValueFactory<Things, Integer>("SProdQty"));
-            tvResult.getColumns().setAll(NameIDCol, NameCol, QtyCol);
+
+            TableColumn PriceCol = new TableColumn("Price");
+            PriceCol.setMinWidth(50);
+            PriceCol.setCellValueFactory(
+                    new PropertyValueFactory<Things, Integer>("Price"));
+
+            tvResult.getColumns().setAll(NameIDCol, NameCol, QtyCol,PriceCol);
             tvResult.setItems(SalesData);
 
         }

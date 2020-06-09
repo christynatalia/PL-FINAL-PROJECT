@@ -67,6 +67,7 @@ public class SalesData {
                                     prepstat4.setInt(2,prodnameid);
                                     prepstat4.setString(3,prodname);
                                     prepstat4.executeUpdate();
+                                    setPricethings();
                                 }
                                 catch(SQLException e)
                                 {
@@ -119,9 +120,10 @@ public class SalesData {
         try
         {
             prepstat.setInt(1,prodnameid);
-            prepstat.setString(1,prodname);
+            prepstat.setString(2,prodname);
             prepstat.setInt(3,prodqty);
             prepstat.executeUpdate();
+            setPricethings();
         }
         catch(SQLException e)
         {
@@ -138,6 +140,36 @@ public class SalesData {
         Stage st = new Stage();
         st.setScene(new Scene(root1));
         st.show();
+
+    }
+
+    public void setPricethings(){
+        int prodnameid = Integer.parseInt(TFDProdID.getText());
+        String prodname = TFDProdName.getText();
+        int pricecopy = 0;
+        String mysql = "SELECT * FROM things_table WHERE Nameid =? AND Name=?";
+        PreparedStatement pr1 = connectt.getPrepstat(mysql);
+        try{
+            pr1.setInt(1,prodnameid);
+            pr1.setString(2,prodname);
+            ResultSet rs = pr1.executeQuery();
+            rs.next();
+            pricecopy = rs.getInt("Price");
+            String mysql2 = "UPDATE sales_table SET Price=? WHERE SProdID=? AND SProdName=?";
+            PreparedStatement pr2 = connectt.getPrepstat(mysql2);
+            try{
+                pr2.setInt(1,pricecopy);
+                pr2.setInt(2,prodnameid);
+                pr2.setString(3,prodname);
+                pr2.executeUpdate();
+            }
+            catch(SQLException e)
+            {
+                System.out.println(e.getMessage());
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
 
     }
 

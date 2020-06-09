@@ -3,15 +3,17 @@ package sample;
 import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleStringProperty;
 
-public class SalesThings{
+public class SalesThings implements  interfcthings{
     private SimpleIntegerProperty SProdID;
     private SimpleStringProperty SProdName;
     private SimpleIntegerProperty SProdQty;
+    private SimpleIntegerProperty Price;
 
-    public SalesThings(int SProdID, String SProdName, int SProdQty) {
+    public SalesThings(int SProdID, String SProdName, int SProdQty, int Price) {
         this.SProdID = new SimpleIntegerProperty(SProdID);
         this.SProdName = new SimpleStringProperty(SProdName);
         this.SProdQty = new SimpleIntegerProperty(SProdQty);
+        this.Price = new SimpleIntegerProperty(Price);
 
     }
 
@@ -49,5 +51,20 @@ public class SalesThings{
 
     public void setSProdQty(int sprodqty) {
         this.SProdQty.set(sprodqty);
+    }
+
+    @Override
+    public int getPrice() {
+        return Price.get();
+    }
+
+    @Override
+    public SimpleIntegerProperty priceProperty() {
+        return Price;
+    }
+
+    @Override
+    public void setPrice(int price) {
+        this.Price.set(price);
     }
 }
