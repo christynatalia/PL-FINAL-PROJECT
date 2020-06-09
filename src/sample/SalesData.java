@@ -1,23 +1,32 @@
 package sample;
 
 import Connectivity.Connect;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Button;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.net.URL;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ResourceBundle;
 
-public class SalesData {
+public class SalesData implements Initializable {
     Connect connectt = new Connect();
-    public Button BtnSAdd,BtnSBack, BtnSExit, putinv;
+    public Button BtnSAdd,BtnSBack, BtnSExit, putinv, Btnload;
     public TextField TFDProdID, TFDProdName, TFDQty;
+    public ChoiceBox<String> SalesChoiceTable;
+    public TableView tvResult;
+    ObservableList typelist = FXCollections.observableArrayList("Inventory", "Sales");
+    ObservableList<Things> data = FXCollections.observableArrayList();
+    ObservableList<SalesThings>SalesData = FXCollections.observableArrayList();
 
     public void CheckData(){
         int prodnameid = Integer.parseInt(TFDProdID.getText());
@@ -184,5 +193,100 @@ public class SalesData {
     public void ExitButton(){
         Stage stage = (Stage) BtnSExit.getScene().getWindow();
         stage.close();
+    }
+
+    public void refreshTable() {
+        data.clear();
+        String sql = "SELECT * FROM things_table";
+        PreparedStatement prepstatt = connectt.getPrepstat(sql);
+        try {
+
+            ResultSet rs = prepstatt.executeQuery();
+            while (rs.next()) {
+                data.add(new Things(rs.getInt("Nameid"), rs.getString("Name"), rs.getInt("Quantity"),
+                        rs.getInt("Price")));
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+
+    public void RefreshSalesTable(){
+        SalesData.clear();
+        String sql = "SElect * FROM Sales_table";
+        PreparedStatement prepstat = connectt.getPrepstat(sql);
+        try{
+            ResultSet rs = prepstat.executeQuery();
+            while(rs.next()){
+                SalesData.add(new SalesThings(rs.getInt("SProdID"),rs.getString("SProdName"),rs.getInt("SProdQty"),rs.getInt("Price")));
+            }
+        }
+        catch(SQLException es)
+        {
+            System.out.println(es.getMessage());
+        }
+    }
+
+    public void LoadBtn(){
+        String choiceboxValue = SalesChoiceTable.getValue();
+        if (choiceboxValue == "Inventory") {
+            refreshTable();
+            TableColumn NameIDCol = new TableColumn("Product ID");
+            NameIDCol.setMinWidth(50);
+            NameIDCol.setCellValueFactory(
+                    new PropertyValueFactory<Things, Integer>("Nameid"));
+
+            TableColumn NameCol = new TableColumn("Product Name");
+            NameCol.setMinWidth(100);
+            NameCol.setCellValueFactory(
+                    new PropertyValueFactory<Things, String>("Name"));
+
+            TableColumn QtyCol = new TableColumn("Quantity");
+            QtyCol.setMinWidth(100);
+            QtyCol.setCellValueFactory(
+                    new PropertyValueFactory<Things, Integer>("Quantity"));
+
+            TableColumn PriceCol = new TableColumn("Price");
+            PriceCol.setMinWidth(50);
+            PriceCol.setCellValueFactory(
+                    new PropertyValueFactory<Things, Integer>("Price"));
+
+
+            tvResult.getColumns().setAll(NameIDCol, NameCol, QtyCol, PriceCol);
+            tvResult.setItems(data);
+        } else if (choiceboxValue=="Sales"){
+            RefreshSalesTable();
+            TableColumn NameIDCol = new TableColumn("Product ID");
+            NameIDCol.setMinWidth(50);
+            NameIDCol.setCellValueFactory(
+                    new PropertyValueFactory<Things, Integer>("SProdID"));
+
+            TableColumn NameCol = new TableColumn("Product Name");
+            NameCol.setMinWidth(100);
+            NameCol.setCellValueFactory(
+                    new PropertyValueFactory<Things, String>("SProdName"));
+
+            TableColumn QtyCol = new TableColumn("Quantity");
+            QtyCol.setMinWidth(100);
+            QtyCol.setCellValueFactory(
+                    new PropertyValueFactory<Things, Integer>("SProdQty"));
+
+            TableColumn PriceCol = new TableColumn("Price");
+            PriceCol.setMinWidth(50);
+            PriceCol.setCellValueFactory(
+                    new PropertyValueFactory<Things, Integer>("Price"));
+
+            tvResult.getColumns().setAll(NameIDCol, NameCol, QtyCol,PriceCol);
+            tvResult.setItems(SalesData);
+
+        }
+    }
+
+
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        SalesChoiceTable.setItems(typelist);
+
     }
 }
