@@ -2,6 +2,7 @@
 
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
 <AnchorPane prefHeight="500.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.InventoryData">
     <children>
@@ -16,11 +17,16 @@
         <Label layoutX="45.0" layoutY="240.0" text="Price" />
         <Button fx:id="BtnBack" layoutX="49.0" layoutY="368.0" mnemonicParsing="false" onAction="#BackButton" text="Back" />
         <Button fx:id="BtnQuit1" layoutX="283.0" layoutY="368.0" mnemonicParsing="false" onAction="#ExitButton" text="Exit" />
-        <TableView fx:id="tvResult" layoutX="349.0" layoutY="50.0" prefHeight="357.0" prefWidth="391.0" />
+        <TableView fx:id="tvResult" layoutX="350.0" layoutY="62.0" prefHeight="357.0" prefWidth="391.0" />
         <Button fx:id="BtnUpdate" layoutX="158.0" layoutY="331.0" mnemonicParsing="false" onAction="#UpdateData" text="Update" />
         <Button fx:id="BtnAddQty" layoutX="238.0" layoutY="331.0" mnemonicParsing="false" onAction="#addQuantity" text="Add Quantity" />
         <Button fx:id="Btndelete" layoutX="105.0" layoutY="368.0" mnemonicParsing="false" onAction="#DeleteData" text="Delete Data from Inventory" />
       <ChoiceBox fx:id="choicebox1" layoutX="47.0" layoutY="285.0" prefWidth="150.0" />
       <Button fx:id="loadData1" layoutX="217.0" layoutY="285.0" mnemonicParsing="false" onAction="#LoadBtn" text="Load Data" />
+      <Label layoutX="320.0" layoutY="20.0" text="INVENTORY DATA">
+         <font>
+            <Font size="30.0" />
+         </font>
+      </Label>
     </children>
 </AnchorPane>

@@ -189,6 +189,84 @@ public class SalesData implements Initializable {
         al.show();
     }
 
+    public void PutInventory(){
+        int prodnameid = Integer.parseInt(TFDProdID.getText());
+        String prodname = TFDProdName.getText();
+        int prodqty = Integer.parseInt(TFDQty.getText());
+        int updateqtySales = 0;
+
+
+        String mysql1 = "SELECT * FROM Sales_table WHERE SProdID=? AND SProdName=?";
+        PreparedStatement pr1 = connectt.getPrepstat(mysql1);
+        try{
+            pr1.setInt(1,prodnameid);
+            pr1.setString(2,prodname);
+            ResultSet rs = pr1.executeQuery();
+            if(rs.next()&& prodqty <= rs.getInt("SProdQty")){
+                //if the data valid in sales table:
+                updateqtySales = rs.getInt("SprodQty") - prodqty;
+                String mysql2 = "UPDATE Sales_table SET SProdQty=? WHERE SprodID=? AND SProdName=?";
+                PreparedStatement pr2 = connectt.getPrepstat(mysql2);
+                try{
+                    pr2.setInt(1,updateqtySales);
+                    pr2.setInt(2,prodnameid);
+                    pr2.setString(3,prodname);
+                    pr2.executeUpdate();
+                    RefreshSalesTable();
+                    CheckInventory();
+                }
+                catch(SQLException ess)
+                {
+                    System.out.println(ess.getMessage());
+                }
+
+            }
+            else
+            {
+                AlertWarning();
+            }
+        }
+        catch(SQLException es)
+        {
+            System.out.println(es.getMessage());
+        }
+
+    }
+
+    public void CheckInventory(){
+        int prodnameid = Integer.parseInt(TFDProdID.getText());
+        String prodname = TFDProdName.getText();
+        int prodqty = Integer.parseInt(TFDQty.getText());
+        int updateqtyInv = 0;
+
+        String mysql1 = "SELECT * FROM things_table WHERE Nameid=? AND Name=?";
+        PreparedStatement pr1 = connectt.getPrepstat(mysql1);
+        try{
+            pr1.setInt(1,prodnameid);
+            pr1.setString(2,prodname);
+            ResultSet rs = pr1.executeQuery();
+            rs.next();
+            updateqtyInv = rs.getInt("Quantity") + prodqty;
+            String mysql2 = "UPDATE things_table SET Quantity=? WHERE Nameid=? AND Name=?";
+            PreparedStatement pr2 = connectt.getPrepstat(mysql2);
+            try{
+                pr2.setInt(1,updateqtyInv);
+                pr2.setInt(2,prodnameid);
+                pr2.setString(3,prodname);
+                pr2.executeUpdate();
+                refreshTable();
+            }
+            catch(SQLException es)
+            {
+                System.out.println(es.getMessage());
+            }
+        }
+        catch(SQLException ES){
+            System.out.println(ES.getMessage());
+        }
+
+    }
+
 
     public void ExitButton(){
         Stage stage = (Stage) BtnSExit.getScene().getWindow();

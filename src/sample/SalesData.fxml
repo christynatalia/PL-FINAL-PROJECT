@@ -2,10 +2,11 @@
 
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.SalesData">
+<AnchorPane prefHeight="400.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.SalesData">
     <children>
-        <Button fx:id="BtnSAdd" layoutX="206.0" layoutY="277.0" mnemonicParsing="false" onAction="#CheckData" text="Add Data to Sales" />
+        <Button fx:id="BtnSAdd" layoutX="190.0" layoutY="277.0" mnemonicParsing="false" onAction="#CheckData" text="Add Data to Sales" />
         <TextField fx:id="TFDProdName" layoutX="139.0" layoutY="125.0" />
         <TextField fx:id="TFDQty" layoutX="139.0" layoutY="173.0" />
         <TextField fx:id="TFDProdID" layoutX="139.0" layoutY="76.0" />
@@ -14,9 +15,14 @@
         <Label layoutX="36.0" layoutY="178.0" text="Quantity" />
       <Button fx:id="BtnSBack" layoutX="42.0" layoutY="314.0" mnemonicParsing="false" onAction="#BackButton" text="Back" />
       <Button fx:id="BtnSExit" layoutX="114.0" layoutY="314.0" mnemonicParsing="false" onAction="#ExitButton" text="Exit" />
-      <TableView fx:id="tvResult" layoutX="331.0" layoutY="53.0" prefHeight="294.0" prefWidth="255.0" />
-      <Button fx:id="putinv" layoutX="67.0" layoutY="277.0" mnemonicParsing="false" onAction="#AddSalesData" text="Put Data to Inventory" />
+      <TableView fx:id="tvResult" layoutX="329.0" layoutY="79.0" prefHeight="294.0" prefWidth="399.0" />
+      <Button fx:id="putinv" layoutX="45.0" layoutY="277.0" mnemonicParsing="false" onAction="#PutInventory" text="Put Data to Inventory" />
       <ChoiceBox fx:id="SalesChoiceTable" layoutX="40.0" layoutY="226.0" prefWidth="150.0" />
       <Button fx:id="Btnload" layoutX="220.0" layoutY="226.0" mnemonicParsing="false" onAction="#LoadBtn" text="Load Data" />
+      <Label layoutX="294.0" layoutY="24.0" text="SALES DATA">
+         <font>
+            <Font size="30.0" />
+         </font>
+      </Label>
     </children>
 </AnchorPane>
