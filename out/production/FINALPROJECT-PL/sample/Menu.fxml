@@ -13,7 +13,7 @@
             <Font size="30.0" />
          </font>
       </Label>
-        <Label layoutX="198.0" layoutY="135.0" text="Choose which inventory you want to edit">
+        <Label layoutX="220.0" layoutY="135.0" text="Choose data that you want to edit">
             <font>
                 <Font size="24.0" />
             </font>

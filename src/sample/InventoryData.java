@@ -26,6 +26,7 @@ public class InventoryData implements Initializable {
     public TextField tfnameid, tfname, tfqty, tfprice;
     public TableView tvResult;
     public ChoiceBox<String> choicebox1;
+    public Label labelcount;
     ObservableList typelist = FXCollections.observableArrayList("Inventory", "Sales");
     ObservableList<Things> data = FXCollections.observableArrayList();
     ObservableList<SalesThings>SalesData = FXCollections.observableArrayList();
@@ -94,10 +95,11 @@ public class InventoryData implements Initializable {
         int qty = Integer.parseInt(tfqty.getText());
         int price = Integer.parseInt(tfprice.getText());
 
-        String mysql = "SELECT * FROM things_table WHERE Nameid=?";
+        String mysql = "SELECT * FROM things_table WHERE Nameid=? AND Name";
         PreparedStatement p1 = connectt.getPrepstat(mysql);
         try {
             p1.setInt(1,nameid);
+            p1.setString(2,name);
             ResultSet rs = p1.executeQuery();
             if (rs.next()) {
                 String sql = "UPDATE things_table SET Price=? WHERE Nameid=?";
@@ -166,38 +168,50 @@ public class InventoryData implements Initializable {
         int qty = Integer.parseInt(tfqty.getText());
         int updateQty = 0;
 
+        if (qty > 0) {
+            String sql = "SELECT * FROM things_table WHERE Nameid=? AND Name=?";
+            PreparedStatement prepstatt = connectt.getPrepstat(sql);
+            try {
+                prepstatt.setInt(1, nameid);
+                prepstatt.setString(2, name);
+                ResultSet rs = prepstatt.executeQuery();
 
-        String sql = "SELECT * FROM things_table WHERE Nameid=? AND Name=?";
-        PreparedStatement prepstatt = connectt.getPrepstat(sql);
-        try {
-            prepstatt.setInt(1, nameid);
-            prepstatt.setString(2, name);
-            ResultSet rs = prepstatt.executeQuery();
-
-            //to check if the data is exist or not.
-            if (rs.next()) {
-                updateQty = qty + rs.getInt("Quantity");
-                String mysql = "UPDATE things_table SET Quantity=? WHERE Nameid=?";
-                PreparedStatement prepstat = connectt.getPrepstat(mysql);
-                try {
-                    prepstat.setInt(1, updateQty);
-                    prepstat.setInt(2, nameid);
-                    prepstat.executeUpdate();
-                    refreshTable();
-                } catch (SQLException e) {
-                    e.getMessage();
+                //to check if the data is exist or not.
+                if (rs.next()) {
+                    updateQty = qty + rs.getInt("Quantity");
+                    String mysql = "UPDATE things_table SET Quantity=? WHERE Nameid=?";
+                    PreparedStatement prepstat = connectt.getPrepstat(mysql);
+                    try {
+                        prepstat.setInt(1, updateQty);
+                        prepstat.setInt(2, nameid);
+                        prepstat.executeUpdate();
+                        refreshTable();
+                    } catch (SQLException e) {
+                        e.getMessage();
+                    }
+                } else {
+                    alertwarning();
                 }
-            } else {
-                Alert al = new Alert(Alert.AlertType.WARNING);
-                al.setTitle("WARNING!");
-                al.setContentText("THERE IS NO DATA FOR THOSE NAMEID!!!");
-                al.show();
-                autoErase();
-            }
-        } catch (SQLException e) {
-            e.getMessage();
+            } catch (SQLException e) {
+                e.getMessage();
 
+            }
+        } else {
+            Alert al = new Alert(Alert.AlertType.WARNING);
+            al.setTitle("WARNING!");
+            al.setContentText("Quantity must be bigger than 0");
+            al.show();
+            autoErase();
         }
+    }
+
+    public void alertwarning(){
+        Alert al = new Alert(Alert.AlertType.WARNING);
+        al.setTitle("WARNING!");
+        al.setContentText("THERE IS NO DATA FOR THOSE NAMEID!!!");
+        al.show();
+        autoErase();
+
     }
 
 
@@ -227,6 +241,7 @@ public class InventoryData implements Initializable {
                     }
                 } else {
                     System.out.println("There is no data");
+                    alertwarning();
 
                 }
             } catch (SQLException eq) {
@@ -235,8 +250,18 @@ public class InventoryData implements Initializable {
         }
     }
 
+    public void sumdata(){
+
+        String choiceboxValue = choicebox1.getValue();
+        if (choiceboxValue == "Inventory") {
+
+        }
+
+    }
+
 
     public void LoadBtn(){
+        int sumdata1 = 0;
         String choiceboxValue = choicebox1.getValue();
         if (choiceboxValue == "Inventory") {
             refreshTable();
@@ -263,6 +288,21 @@ public class InventoryData implements Initializable {
 
             tvResult.getColumns().setAll(NameIDCol, NameCol, QtyCol, PriceCol);
             tvResult.setItems(data);
+
+            String sql1 = "SELECT * FROM things_table";
+            PreparedStatement prepstat = connectt.getPrepstat(sql1);
+            try {
+                ResultSet rs = prepstat.executeQuery();
+                while (rs.next()) {
+                    sumdata1 = sumdata1 + rs.getInt("Quantity");
+                }
+            } catch (SQLException es) {
+                System.out.println(es.getMessage());
+            }
+            labelcount.setText(String.valueOf(sumdata1));
+
+
+
         } else if (choiceboxValue=="Sales"){
             RefreshSalesTable();
             TableColumn NameIDCol = new TableColumn("Product ID");
@@ -287,6 +327,17 @@ public class InventoryData implements Initializable {
 
             tvResult.getColumns().setAll(NameIDCol, NameCol, QtyCol,PriceCol);
             tvResult.setItems(SalesData);
+            String sql1 = "SELECT * FROM Sales_table";
+            PreparedStatement prepstat = connectt.getPrepstat(sql1);
+            try {
+                ResultSet rs = prepstat.executeQuery();
+                while (rs.next()) {
+                    sumdata1 = sumdata1 + rs.getInt("SProdQty");
+                }
+            } catch (SQLException es) {
+                System.out.println(es.getMessage());
+            }
+            labelcount.setText(String.valueOf(sumdata1));
 
         }
     }

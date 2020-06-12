@@ -2,8 +2,13 @@
   <library name="mysql-connector-java-8.0.20">
     <CLASSES>
       <root url="jar://$USER_HOME$/Downloads/mysql-connector-java-8.0.20/mysql-connector-java-8.0.20.jar!/" />
+      <root url="jar://$USER_HOME$/Downloads/Jasper Report Support/lib/intellij-jasper-report-support-1.0.2.jar!/" />
+      <root url="jar://$USER_HOME$/Downloads/Jasper Report Support/lib/searchableOptions-1.0.1.jar!/" />
+      <root url="jar://$USER_HOME$/Downloads/Jasper Report Support/lib/searchableOptions-1.0.2.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES />
+    <jarDirectory url="jar://$USER_HOME$/Downloads/Jasper Report Support/lib/searchableOptions-1.0.1.jar!/" recursive="false" />
+    <jarDirectory url="jar://$USER_HOME$/Downloads/Jasper Report Support/lib/searchableOptions-1.0.2.jar!/" recursive="false" />
   </library>
 </component>

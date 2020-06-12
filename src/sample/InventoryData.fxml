@@ -28,5 +28,7 @@
             <Font size="30.0" />
          </font>
       </Label>
+      <Label fx:id="labelcount" layoutX="600.0" layoutY="432.0" text="0" />
+      <Label layoutX="483.0" layoutY="432.0" text="Total Quantity =" />
     </children>
 </AnchorPane>
