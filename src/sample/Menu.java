@@ -17,6 +17,7 @@ public class Menu {
             Parent root1 = fxmlLoader.<Parent>load();
             Stage st = new Stage();
             st.setScene(new Scene(root1));
+            st.setTitle("Inventory Database Program");
             st.show();
 
         }
@@ -35,6 +36,7 @@ public class Menu {
             Parent root1 = fxmlLoader.<Parent>load();
             Stage st = new Stage();
             st.setScene(new Scene(root1));
+            st.setTitle("Inventory Database Program");
             st.show();
 
         }

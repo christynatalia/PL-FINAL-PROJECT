@@ -14,20 +14,18 @@ public class Connect{
     public Connect () {
         try {
             conny = DriverManager.getConnection(host, uName, uPass);
-            // return con;
+            System.out.println("Success connect to database!");
         } catch (SQLException err) {
             System.out.println(err.getMessage());
         }
-
-        //return null;
     }
 
-    public PreparedStatement getPrepstat(String query) {
+    public PreparedStatement Prepstatement(String query) {
         try {
             PreparedStatement prepStat = conny.prepareStatement(query);
             return prepStat;
         } catch (SQLException e) {
-            e.printStackTrace();
+            System.out.println(e.getMessage());
         }
         return null;
     }
