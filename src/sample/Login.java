@@ -4,7 +4,6 @@ import javafx.scene.Parent;
 import javafx.scene.control.*;
 import javafx.stage.Stage;
 import javafx.scene.Scene;
-
 import java.util.Optional;
 
 public class Login {
@@ -31,8 +30,6 @@ public class Login {
                     st.setScene(new Scene(root1));
                     st.setTitle("Inventory Database Program");
                     st.show();
-
-
                 } catch (Exception e) {
                     System.out.println("Can't open");
                 }

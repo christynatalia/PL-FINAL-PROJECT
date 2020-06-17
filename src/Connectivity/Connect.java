@@ -6,12 +6,13 @@ import java.sql.SQLException;
 
 
 public class Connect{
-    String host = "jdbc:mysql://localhost:3306/FinalProjectData?serverTimezone=UTC";
-    String uName = "root";
-    String uPass = "christy123";
-    java.sql.Connection conny = null;
+    private String host = "jdbc:mysql://localhost:3306/FinalProjectData?serverTimezone=UTC";
+    private String uName = "root";
+    private String uPass = "christy123";
+    private java.sql.Connection conny = null;
 
     public Connect () {
+        //to connect this java program with mysql database.
         try {
             conny = DriverManager.getConnection(host, uName, uPass);
             System.out.println("Success connect to database!");
@@ -20,6 +21,8 @@ public class Connect{
         }
     }
 
+    //to make it simple so we can access those database from any class just by calling this function
+    //and only have to write the blob text.
     public PreparedStatement Prepstatement(String query) {
         try {
             PreparedStatement prepStat = conny.prepareStatement(query);

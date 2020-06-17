@@ -70,6 +70,8 @@ public class SalesData implements Initializable {
                                         prepstat4.setString(3, prodname);
                                         prepstat4.executeUpdate();
                                         setPricethings();
+                                        RefreshSalesTable();
+                                        refreshTable();
                                     } catch (SQLException e) {
                                         System.out.println(e.getMessage());
                                     }
@@ -116,6 +118,7 @@ public class SalesData implements Initializable {
             prepstat.setInt(3,prodqty);
             prepstat.executeUpdate();
             setPricethings();
+            RefreshSalesTable();
         }
         catch(SQLException e)
         {
@@ -155,6 +158,7 @@ public class SalesData implements Initializable {
                 pr2.setInt(2,prodnameid);
                 pr2.setString(3,prodname);
                 pr2.executeUpdate();
+                RefreshSalesTable();
             }
             catch(SQLException e)
             {

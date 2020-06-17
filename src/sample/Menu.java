@@ -9,7 +9,7 @@ import javafx.stage.Stage;
 public class Menu {
     public Button BtnAddData,BtnDelete;
 
-    public void ButtonAddData(){
+    public void ButtonAddInventory(){
         Stage stage = (Stage) BtnAddData.getScene().getWindow();
         stage.close();
         try {
@@ -28,7 +28,7 @@ public class Menu {
         }
     }
 
-    public void BtnSaddData(){
+    public void ButtonAddSales(){
         Stage stage = (Stage) BtnAddData.getScene().getWindow();
         stage.close();
         try {

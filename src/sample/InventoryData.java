@@ -36,6 +36,7 @@ public class InventoryData implements Initializable {
         int qty = Integer.parseInt(tfqty.getText());
         int price = Integer.parseInt(tfprice.getText());
 
+        //check if the Nameid already exist in database or not
         String mysql = "SELECT * FROM things_table WHERE Nameid=?";
         PreparedStatement pr1 = connectt.Prepstatement(mysql);
         try{
@@ -43,6 +44,7 @@ public class InventoryData implements Initializable {
             ResultSet rs1 = pr1.executeQuery();
             if(rs1.next())
             {
+                //if already exist, it will return an error messages.
                 Alert al = new Alert(Alert.AlertType.WARNING);
                 al.setTitle("WARNING!");
                 al.setContentText("Data already exist!");
@@ -50,6 +52,7 @@ public class InventoryData implements Initializable {
             }
             else
             {
+                //else, it will create the new data.
                 String sql = "INSERT INTO things_table(Nameid, Name, Quantity, Price)" + "VALUES(?,?,?,?)";
                 PreparedStatement prepstat = connectt.Prepstatement(sql);
                 try {
