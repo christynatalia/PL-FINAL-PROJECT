@@ -14,6 +14,7 @@ public class Login {
     public void Login(){
         if (TFUsername.getText().equals("admin") && TFPassword.getText().equals("admin"))
         {
+            // if the username and password that user input is valid, it will show some information
             Alert al = new Alert(Alert.AlertType.INFORMATION);
             al.setTitle("INFORMATION");
             al.setHeaderText("Success!");
@@ -21,9 +22,11 @@ public class Login {
             Optional<ButtonType> rs = al.showAndWait();
             ButtonType button = rs.orElse(ButtonType.OK);
             if (button == ButtonType.OK) {
+                // if the user clicked the ok button, it will close this login scene
                 Stage stage = (Stage) BtnLogin.getScene().getWindow();
                 stage.close();
                 try {
+                    // go to another stage which is Menu.fxml
                     FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("Menu.fxml"));
                     Parent root1 = fxmlLoader.<Parent>load();
                     Stage st = new Stage();
@@ -37,6 +40,7 @@ public class Login {
         }
         else
         {
+            // if username and password is not valid, it will show an alert message
             Alert a = new Alert(Alert.AlertType.WARNING);
             a.setTitle("WARNING!");
             a.setContentText("Incorrect Login Information");

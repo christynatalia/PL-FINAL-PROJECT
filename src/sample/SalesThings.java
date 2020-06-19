@@ -14,9 +14,7 @@ public class SalesThings implements  interfcthings{
         this.SProdName = new SimpleStringProperty(SProdName);
         this.SProdQty = new SimpleIntegerProperty(SProdQty);
         this.Price = new SimpleIntegerProperty(Price);
-
     }
-
     public int getSProdID() {
         return SProdID.get();
     }
@@ -52,17 +50,14 @@ public class SalesThings implements  interfcthings{
     public void setSProdQty(int sprodqty) {
         this.SProdQty.set(sprodqty);
     }
-
     @Override
     public int getPrice() {
         return Price.get();
     }
-
     @Override
     public SimpleIntegerProperty priceProperty() {
         return Price;
     }
-
     @Override
     public void setPrice(int price) {
         this.Price.set(price);

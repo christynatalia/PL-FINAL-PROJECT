@@ -13,6 +13,7 @@ public class Menu {
         Stage stage = (Stage) BtnAddData.getScene().getWindow();
         stage.close();
         try {
+            // if the user clicked inventory data, it will go to InventoryData.fxml and close this menu
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("InventoryData.fxml"));
             Parent root1 = fxmlLoader.<Parent>load();
             Stage st = new Stage();
@@ -32,6 +33,7 @@ public class Menu {
         Stage stage = (Stage) BtnAddData.getScene().getWindow();
         stage.close();
         try {
+            // if the user clicked Sales Data, it will go to SalesData.fxml and close this menu
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("SalesData.fxml"));
             Parent root1 = fxmlLoader.<Parent>load();
             Stage st = new Stage();

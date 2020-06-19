@@ -6,8 +6,8 @@
 
 <AnchorPane prefHeight="500.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Menu">
     <children>
-        <Button fx:id="BtnAddData" layoutX="212.0" layoutY="216.0" mnemonicParsing="false" onAction="#ButtonAddData" prefHeight="69.0" prefWidth="132.0" text="Inventory Data" />
-        <Button fx:id="BtnDelete" layoutX="480.0" layoutY="216.0" mnemonicParsing="false" onAction="#BtnSaddData" prefHeight="69.0" prefWidth="132.0" text="Sales Data" />
+        <Button fx:id="BtnAddData" layoutX="212.0" layoutY="216.0" mnemonicParsing="false" onAction="#ButtonAddInventory" prefHeight="69.0" prefWidth="132.0" text="Inventory Data" />
+        <Button fx:id="BtnDelete" layoutX="480.0" layoutY="216.0" mnemonicParsing="false" onAction="#ButtonAddSales" prefHeight="69.0" prefWidth="132.0" text="Sales Data" />
       <Label layoutX="358.0" layoutY="37.0" text="MENU">
          <font>
             <Font size="30.0" />

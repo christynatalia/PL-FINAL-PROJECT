@@ -15,8 +15,6 @@ public class Things implements interfcthings{
         this.Quantity = new SimpleIntegerProperty(Quantity);
         this.Price = new SimpleIntegerProperty(Price);
     }
-
-
     public int getNameid() {
         return Nameid.get();
     }
