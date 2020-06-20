@@ -25,6 +25,7 @@ public class SalesData implements Initializable {
     public TextField TFDProdID, TFDProdName, TFDQty;
     public ChoiceBox<String> SalesChoiceTable;
     public TableView tvResult;
+    public Label sumlabel;
     ObservableList typelist = FXCollections.observableArrayList("Inventory", "Sales");
     ObservableList<Things> data = FXCollections.observableArrayList();
     ObservableList<SalesThings> SalesData = FXCollections.observableArrayList();
@@ -80,6 +81,7 @@ public class SalesData implements Initializable {
                                     refreshTable();
                                     autoErase();
                                     AlertSuccess();
+                                    sumdata();
                                 } catch (SQLException e) {
                                     System.out.println(e.getMessage());
                                 }
@@ -135,6 +137,7 @@ public class SalesData implements Initializable {
             RefreshSalesTable();
             autoErase();
             AlertSuccess();
+            sumdata();
         }
         catch(SQLException e)
         {
@@ -179,6 +182,7 @@ public class SalesData implements Initializable {
                 pr2.setString(3,prodname);
                 pr2.executeUpdate();
                 RefreshSalesTable();
+                sumdata();
             }
             catch(SQLException e)
             {
@@ -243,6 +247,7 @@ public class SalesData implements Initializable {
                     //CheckInventory();
                     AlertSuccess();
                     autoErase();
+                    sumdata();
                 }
                 catch(SQLException ess)
                 {
@@ -261,6 +266,40 @@ public class SalesData implements Initializable {
             System.out.println(es.getMessage());
         }
 
+    }
+
+    public void sumdata(){
+        // this function is to sum the number of data in the corresponding table.
+        int sumdata1 = 0;
+        String choiceboxValue = SalesChoiceTable.getValue();
+        if (choiceboxValue == "Inventory") {
+            String sql1 = "SELECT * FROM things_table";
+            PreparedStatement prepstat = connectt.Prepstatement(sql1);
+            try {
+                ResultSet rs = prepstat.executeQuery();
+                while (rs.next()) {
+                    sumdata1 = sumdata1 + rs.getInt("Quantity");
+                }
+            } catch (SQLException es) {
+                System.out.println(es.getMessage());
+            }
+            sumlabel.setText(String.valueOf(sumdata1));
+        }
+        else if (choiceboxValue == "Sales")
+        {
+            String sql1 = "SELECT * FROM Sales_table";
+            PreparedStatement prepstat = connectt.Prepstatement(sql1);
+            try {
+                ResultSet rs = prepstat.executeQuery();
+                while (rs.next()) {
+                    sumdata1 = sumdata1 + rs.getInt("SProdQty");
+                }
+            } catch (SQLException es) {
+                System.out.println(es.getMessage());
+            }
+            sumlabel.setText(String.valueOf(sumdata1));
+
+        }
     }
 
     /*public void CheckInventory(){
@@ -379,6 +418,7 @@ public class SalesData implements Initializable {
 
             tvResult.getColumns().setAll(NameIDCol, NameCol, QtyCol, PriceCol);
             tvResult.setItems(data);
+            sumdata();
         } else if (choiceboxValue=="Sales"){
             RefreshSalesTable();
             TableColumn NameIDCol = new TableColumn("Product ID");
@@ -403,6 +443,7 @@ public class SalesData implements Initializable {
 
             tvResult.getColumns().setAll(NameIDCol, NameCol, QtyCol,PriceCol);
             tvResult.setItems(SalesData);
+            sumdata();
 
         }
     }

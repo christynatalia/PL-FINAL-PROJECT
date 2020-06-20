@@ -24,5 +24,7 @@
             <Font size="30.0" />
          </font>
       </Label>
+      <Label layoutX="385.0" layoutY="378.0" text="Total Quantity : " />
+      <Label fx:id="sumlabel" layoutX="481.0" layoutY="378.0" text="0" />
     </children>
 </AnchorPane>

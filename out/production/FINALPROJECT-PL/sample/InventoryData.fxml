@@ -20,7 +20,7 @@
         <TableView fx:id="tvResult" layoutX="350.0" layoutY="62.0" prefHeight="357.0" prefWidth="391.0" />
         <Button fx:id="BtnUpdate" layoutX="140.0" layoutY="331.0" mnemonicParsing="false" onAction="#UpdateData" text="Update Price" />
         <Button fx:id="BtnAddQty" layoutX="238.0" layoutY="331.0" mnemonicParsing="false" onAction="#addQuantity" text="Add Quantity" />
-        <Button fx:id="Btndelete" layoutX="105.0" layoutY="368.0" mnemonicParsing="false" onAction="#DeleteData" text="Delete Data" />
+        <Button fx:id="Btndelete" layoutX="111.0" layoutY="368.0" mnemonicParsing="false" onAction="#DeleteData" text="Delete From Both Table" />
       <ChoiceBox fx:id="choicebox1" layoutX="47.0" layoutY="285.0" prefWidth="150.0" />
       <Button fx:id="loadData1" layoutX="217.0" layoutY="285.0" mnemonicParsing="false" onAction="#LoadBtn" text="Load Data" />
       <Label layoutX="320.0" layoutY="20.0" text="INVENTORY DATA">

@@ -230,6 +230,7 @@ public class InventoryData implements Initializable {
                         autoErase();
                     } catch (SQLException e) {
                         e.getMessage();
+                        alertwarning();
                     }
                 } else {
                     // if the data doesn't exist it will show an alert
@@ -237,6 +238,7 @@ public class InventoryData implements Initializable {
                 }
             } catch (SQLException e) {
                 e.getMessage();
+                alertwarning();
 
             }
         } else {
@@ -273,7 +275,7 @@ public class InventoryData implements Initializable {
         int nameid = Integer.parseInt(tfnameid.getText());
         String name = tfname.getText();
         //confirmation for user to delete the data for those product name
-        Alert al = new Alert(Alert.AlertType.CONFIRMATION, "Are you sure you want to delete " + name + "from Sales and Inventory? This action can't be undone");
+        Alert al = new Alert(Alert.AlertType.CONFIRMATION, "Are you sure you want to delete " + name + " from Sales and Inventory? This action can't be undone");
         Optional<ButtonType> rs = al.showAndWait();
         ButtonType button = rs.orElse(ButtonType.OK);
         if (button == ButtonType.OK) {
